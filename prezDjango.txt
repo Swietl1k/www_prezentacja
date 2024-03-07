@@ -1,0 +1,52 @@
+1. pipenv install django w wybranym folderze
+pipenv tworzy wirtualne środowisko i instaluje w nim django
+tworzy również dwa pliki Pipfile, Pipfile.lock
+aktywujemy vitrual środowisko za pomocą python interpretera
+2. pipenv shell
+3. django-admin startproject [nazwa_projektu] .
+4. python manage.py runserver
+default port dla servera to 8000
+
+w module settings.py:
+w INSTALLED_APPS mamy defaultowo zawsze instalowane dane aplikacje:
+django.contrib.admin - tworzy dla nas interfejs admina
+.auth - służy do uwierzytelniania użytkowników
+.contenttypes
+.sessions - temp memory on the server for storing users data, jest ona troche przestarzała i rzadko się jej używa wiec mozna ją usunąć 
+.messages - wysyła powiadomienia użytkownikowi
+.staticfiles - zawiera static files np zdjecia lub pliki css
+
+python manage.py startapp [nazwa_aplikacji]
+tworzy nowy folder naszej aplikacji 
+dodajemy do settings.py w INSTALLED_APPS nazwe naszej aplikacji
+
+view.py - moduł w którym definiujemy tzw "view functions" funkcja ta bierze zapytanie i zwraca odpowiedź, lepsza nazwa dla 'view' byłaby 'request handler'
+gpt na temat mapowania url:
+Kiedy tworzysz funkcję widoku (view function) w Django w pliku views.py, musisz również określić, które adresy URL mają być powiązane z tą funkcją widoku. Proces ten nazywa się mapowaniem URLi do widoków.
+Mapowanie to odbywa się w pliku urls.py, który znajduje się wewnątrz aplikacji Django. W tym pliku definiujesz tzw. wzorce URLi, czyli zestawy reguł, które określają, jak Django ma przekierowywać żądania URL do odpowiednich funkcji widoku.
+(plik urls.py (nazwa 'urls' jest przykładowa ale najczęściej taka jest używana) musimy stworzyć ręcznie w folderze naszej aplikacji)
+
+przykładowo w urls.py w aplikacji:
+urlpatterns = [
+    path('hello/', views.say_hello)
+]
+
+w urls.py w głównym folderze urls.py:
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('playground/', include('nazwa_aplikacji.urls'))
+]
+
+po wpisaniu w przeglądarke adresu w przeglądarke /nazwa_aplikacji/hello zostanie wywołana nasza view function i zostanie wyświetlone 'hello wrld'
+
+wygodnie jest stworzyć dodatkowy folder 'templates' w naszej aplikacji który będzie zawierał szablony
+w folderze templates możemy stworzyć plik html przykładowo hello.html
+możemy teraz zmienić naszą 'funkcję widoku' w następujący sposób, aby zwracała naszemu użytownikowi szablon html
+def say_hello(request):
+    return render(request, 'hello.html')
+
+możemy w render() przekazać również dictionary:
+def say_hello(request):
+    return render(request, 'hello.html', {name: 'Szymon'})
+
+i w pliku hello.html możemy użyć przekazanych wartości <h1>Hello {{name}}</h1>
