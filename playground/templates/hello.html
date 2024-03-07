@@ -6,9 +6,11 @@
     <title>Hello</title>
 </head>
 <body>
+    <text>Jest to przykładowa strona ze skryptu HTML</text> <br>
+    <text>Po prawej stronie widoczny jest django toolbox</text>
     <form method="post">
         {% csrf_token %}
-        <label for="user_input">Enter your name:</label><br>
+        <label for="user_input">Wprowadź swoje imię:</label><br>
         <input type="text" id="user_input" name="user_input"><br>
         <input type="submit" value="Submit">
     </form>
