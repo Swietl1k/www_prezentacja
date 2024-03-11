@@ -4,7 +4,9 @@
 <body>
 
 <h1>{{ myuser.firstname }} {{ myuser.lastname }}</h1>
-  
+{% with wiad_powitalna="Dzień dobry" %}
+<h2>{{wiad_powitalna}}</h2>
+{% endwith %}  
 <p>Phone: {{ myuser.phone }}</p>
 <p>Member since: {{ myuser.join_date }}</p>
 

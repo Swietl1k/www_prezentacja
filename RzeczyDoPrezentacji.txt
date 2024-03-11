@@ -66,3 +66,7 @@ warto również stworzyc panel admina
 trzeba użyć komendy py manage.py createsuperuser
 w admin.py trzeba zarejestrować swoje modele
 wtedy w panelu admina możemy bardzo wygodnie zmieniac naszą baze danych 
+
+w szablonach html django pozwala nam używać logiki np if lub for w nawiasach {%%}
+możemy użyć danych nawiasów między innymi do operowania zmiennymi np z tabeli modelów poprzez przekazanie jej za pomocą funkcji widoku w polu context = {}
+
