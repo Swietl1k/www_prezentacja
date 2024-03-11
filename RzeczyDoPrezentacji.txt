@@ -57,3 +57,12 @@ modele są w skrócie tabelami w bazie danych, aby stworzyć te tablice trzeba u
 Django creates a file describing the changes and stores the file in the /migrations/ folder
 w tym pliku zdefiniowane zostało 'id' dla naszych tabel (z definicji pierwszy zapis dostaje id=1 drugi id=2 itp. lecz mozna to zmienic ręcznie)
 następnie "py manage.py migrate"
+
+aby używać naszych modułów na stronie musimy je zaimportować do views.py i stworzyć odpowiednią funkcję
+
+w models stworzyłem Siteusers gdzie ręcznie poprzez python shella sa zapisywani przykładowi użytkownicy i pozniej wykorzystuje to w /all_users
+
+warto również stworzyc panel admina
+trzeba użyć komendy py manage.py createsuperuser
+w admin.py trzeba zarejestrować swoje modele
+wtedy w panelu admina możemy bardzo wygodnie zmieniac naszą baze danych 

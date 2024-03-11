@@ -19,8 +19,9 @@ from django.urls import path, include
 import debug_toolbar
 
 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), #username: szymon, password: Szymon123!@#, email: szymon.trg1@gmail.com
     path('playground/', include('playground.urls')),
     path('__debug__/', include(debug_toolbar.urls)), #added debug toolbar 
 ]
