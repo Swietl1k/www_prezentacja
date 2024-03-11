@@ -50,3 +50,10 @@ def say_hello(request):
     return render(request, 'hello.html', {name: 'Szymon'})
 
 i w pliku hello.html możemy użyć przekazanych wartości <h1>Hello {{name}}</h1>
+
+do obsługiwania danych możemy stworzyć modele w models.py
+w projekcie django znajduje sie pusta baza danych SQLite pod nazwą db.sqlite3
+modele są w skrócie tabelami w bazie danych, aby stworzyć te tablice trzeba utworzyć je w pliku models.py i następnie "py manage.py makemigrations "Playground""
+Django creates a file describing the changes and stores the file in the /migrations/ folder
+w tym pliku zdefiniowane zostało 'id' dla naszych tabel (z definicji pierwszy zapis dostaje id=1 drugi id=2 itp. lecz mozna to zmienic ręcznie)
+następnie "py manage.py migrate"
