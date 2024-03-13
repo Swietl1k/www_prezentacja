@@ -35,3 +35,13 @@ def view_details(request, id):
         'myuser': myuser,
     }
     return HttpResponse(template.render(context, request))
+
+
+def view_testing(request):
+    mydata = Siteuser.objects.all()
+    mydata_alphabet = Siteuser.objects.all().order_by('firstname').values()
+    template = loader.get_template('testing.html')
+    context = {
+        'myusers': mydata_alphabet,
+    }
+    return HttpResponse(template.render(context, request))
