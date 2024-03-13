@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
-
+<head>
+  <title>User Details</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+</head>
 <body>
 
-<h1>{{ myuser.firstname }} {{ myuser.lastname }}</h1>
-{% with wiad_powitalna="Dzień dobry" %}
-<h2>{{wiad_powitalna}}</h2>
-{% endwith %}  
-<p>Phone: {{ myuser.phone }}</p>
-<p>Member since: {{ myuser.join_date }}</p>
+<div class="container">
+  <h1>{{ myuser.firstname }} {{ myuser.lastname }}</h1>
+  
+  <h2>Dzień dobry</h2>
+  
+  <p>Phone: {{ myuser.phone }}</p>
+  <p>Member since: {{ myuser.join_date }}</p>
 
-<p>Back to <a href="/playground/all_users">Members</a></p>
+  <p><a href="/playground/all_users" class="btn btn-primary">Back to Members</a></p>
+</div>
 
+{% bootstrap_javascript %}
 </body>
 </html>

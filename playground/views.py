@@ -28,8 +28,8 @@ def view_users(request):
     return HttpResponse(template.render(context, request))
 
 
-def view_details(request, id):
-    myuser = Siteuser.objects.get(id=id)
+def view_details(request, slug):
+    myuser = Siteuser.objects.get(slug=slug)
     template = loader.get_template('users_details.html')
     context = {
         'myuser': myuser,

@@ -8,5 +8,8 @@ class SiteuserAdmin(admin.ModelAdmin):
 
 """
 
+class SiteuserAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": {"firstname", "lastname"}}
+
 admin.site.register(Siteuser)
 

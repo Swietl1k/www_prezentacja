@@ -71,3 +71,5 @@ w szablonach html django pozwala nam używać logiki np if lub for w nawiasach {
 możemy użyć danych nawiasów między innymi do operowania zmiennymi np z tabeli modelów poprzez przekazanie jej za pomocą funkcji widoku w polu context = {}
 
 mozna stworzyć folder /static/ w którym będziemy tworzyć pliki css których można użyć w szablonach html za pomocą {% load static %}, lub inne pliki statyczne typu jpg
+
+oprócz SQLite django supportuje postgreSQL, MariaDB, MySQL, Oracle

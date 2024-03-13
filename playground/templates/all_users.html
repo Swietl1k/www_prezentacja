@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>User List</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+</head>
 <body>
 
-<h1>Users</h1>
+<div class="container">
+  <h1>Users</h1>
   
-<ul>
-  {% for x in myusers %}
-      <li><a href="users_details/{{x.id}}">{{ x.firstname }}  {{ x.lastname }}</a></li>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for x in myusers %}
+      <tr>
+        <td>{{ x.firstname }}</td>
+        <td>{{ x.lastname }}</td>
+        <td><a href="users_details/{{ x.slug }}" class="btn btn-primary">Details</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
-  {% endfor %}
-</ul>
-
+{% bootstrap_javascript %}
 </body>
 </html>
